@@ -20,13 +20,15 @@
  */
 package org.joshvm.JEDI.displaydevice.SPILCDController;
 
-import org.joshvm.j2me.dio.*;
-import org.joshvm.j2me.dio.spibus.*;
-import org.joshvm.j2me.dio.DeviceException;
-import org.joshvm.JEDI.displaydevice.DisplayDeviceDescriptor;
-import org.joshvm.JEDI.InvalidDeviceDescriptorException;
-
 import java.io.IOException;
+
+import org.joshvm.JEDI.InvalidDeviceDescriptorException;
+import org.joshvm.JEDI.displaydevice.DisplayDeviceDescriptor;
+import org.joshvm.j2me.dio.Device;
+import org.joshvm.j2me.dio.DeviceException;
+import org.joshvm.j2me.dio.DeviceManager;
+import org.joshvm.j2me.dio.spibus.SPIDevice;
+import org.joshvm.j2me.dio.spibus.SPIDeviceConfig;
 
 public abstract class SPILCDController implements org.joshvm.JEDI.displaydevice.DisplayDevice {
 
@@ -46,6 +48,13 @@ public abstract class SPILCDController implements org.joshvm.JEDI.displaydevice.
 									.setBitOrdering(bitOrdering)
 									.setCSActiveLevel(csActiveLevel)
 									.build();
+			System.out.println("SPIControllerNumber:" + SPIControllerNumber);
+			System.out.println("CSAddress:" + CSAddress);
+			System.out.println("clockFrequency:" + clockFrequency);
+			System.out.println("clockMode:" + clockMode);
+			System.out.println("wordLength:" + wordLength);
+			System.out.println("bitOrdering:" + bitOrdering);
+			System.out.println("csActiveLevel:" + csActiveLevel);
 			spi = (SPIDevice)DeviceManager.open(config, DeviceManager.EXCLUSIVE);
 		} catch (DeviceException e) {
 			throw new IOException(e.toString());

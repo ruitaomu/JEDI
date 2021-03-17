@@ -146,7 +146,6 @@ public class ILI9341_driver extends SPILCDController {
 	}
 
 	private void Lcd_Init() throws Exception {
-		System.out.println("Lcd_Init start...");
 		// OLED_CS_Clr(); //��Ƭѡʹ��
 		OLED_RST_Clr();
 		delay_ms(20);
@@ -208,8 +207,7 @@ public class ILI9341_driver extends SPILCDController {
 		LCD_WR_DATA8(0x00);
 		LCD_WR_DATA8(0x18);
 		
-		System.out.println("Lcd_Init...");
-
+		
 		LCD_WR_REG(0xB6); // Display Function Control
 		LCD_WR_DATA8(0x0A);
 		LCD_WR_DATA8(0xA2);
@@ -258,8 +256,7 @@ public class ILI9341_driver extends SPILCDController {
 		delay_ms(120);
 		LCD_WR_REG(0x29); // Display on
 		
-		System.out.println("Lcd_Init end...");
-
+		
 	}
 
 	// ��������
@@ -324,7 +321,6 @@ public class ILI9341_driver extends SPILCDController {
 
 	public void init(DisplayDeviceDescriptor desc) throws InvalidDeviceDescriptorException, IOException {
 		try {
-			System.out.println("init...");
 			if (!(desc instanceof ILI9341_DeviceDescriptor)) {
 				throw new InvalidDeviceDescriptorException(
 						"The input DisplayDeviceDescriptor is not ILI9341_DeviceDescriptor");

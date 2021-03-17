@@ -48,13 +48,6 @@ public abstract class SPILCDController implements org.joshvm.JEDI.displaydevice.
 									.setBitOrdering(bitOrdering)
 									.setCSActiveLevel(csActiveLevel)
 									.build();
-			System.out.println("SPIControllerNumber:" + SPIControllerNumber);
-			System.out.println("CSAddress:" + CSAddress);
-			System.out.println("clockFrequency:" + clockFrequency);
-			System.out.println("clockMode:" + clockMode);
-			System.out.println("wordLength:" + wordLength);
-			System.out.println("bitOrdering:" + bitOrdering);
-			System.out.println("csActiveLevel:" + csActiveLevel);
 			spi = (SPIDevice)DeviceManager.open(config, DeviceManager.EXCLUSIVE);
 		} catch (DeviceException e) {
 			throw new IOException(e.toString());
